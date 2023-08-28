@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { auth } from "../auth";
-import { SignIn, SignOut } from "../components/auth-client-components";
+import { SignIn, SignOut } from "@/components/auth-client-components";
+import { auth } from "@/auth";
 
 export default async function Page() {
   const user = await auth();
