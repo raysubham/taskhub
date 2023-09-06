@@ -1,6 +1,6 @@
 import GitHub from "@auth/core/providers/github";
 
-import { env } from "@/env";
+import { env } from "@/lib/env";
 
 import type { NextAuthConfig } from "next-auth";
 

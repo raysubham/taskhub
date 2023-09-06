@@ -1,5 +1,7 @@
-import "./globals.css";
 import { Inter } from "next/font/google";
+import "./globals.css";
+
+import TRPCProvider from "@/lib/trpc/trpcProvider";
 
 import type { Metadata } from "next";
 
@@ -13,7 +15,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <TRPCProvider>{children}</TRPCProvider>
+      </body>
     </html>
   );
 }

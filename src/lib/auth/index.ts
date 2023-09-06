@@ -1,6 +1,6 @@
 import NextAuth from "next-auth";
 
-import authConfig from "@/auth/auth.config";
+import authConfig from "@/lib/auth/auth.config";
 
 import type { DefaultSession } from "next-auth";
 
