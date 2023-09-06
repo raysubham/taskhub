@@ -1,22 +1,24 @@
 import Image from "next/image";
-import { SignIn, SignOut } from "@/components/auth-client-components";
+import { SignIn, SignOut } from "@/components/auth-components";
 import { auth } from "@/auth";
 
 export default async function Page() {
-  const user = await auth();
-  console.log({ okkk: user });
+  const session = await auth();
 
-  if (user) {
+  if (session) {
     return (
       <>
-        <p>{user.user?.name}</p>
+        <div className="flex space-x-4">
+          <p>{session.user?.name}</p>
+          <p>{session.user.email}</p>
+          <SignOut>Sign out</SignOut>
+        </div>
         <Image
-          src={user.user?.picture}
+          src={session.user?.picture}
           width={100}
           height={100}
           alt="Profile Pic"
         />
-        <SignOut>Sign out</SignOut>
       </>
     );
   }

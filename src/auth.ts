@@ -1,10 +1,21 @@
-import NextAuth from "next-auth";
-import GitHub from "next-auth/providers/GitHub";
+import NextAuth, { DefaultSession } from "next-auth";
+import authConfig from "@/auth.config";
+
+declare module "next-auth" {
+  interface Session {
+    user: { id: string; picture: string } & DefaultSession["user"];
+  }
+}
+
 export const {
   handlers: { GET, POST },
   auth,
-  CSRF_experimental,
-} = NextAuth({
-  providers: [GitHub],
-  debug: true,
-});
+} = NextAuth(authConfig);
+
+export const getCurrentUser = async () => {
+  const session = await auth();
+  if (session) {
+    return session.user;
+  }
+  return null;
+};
