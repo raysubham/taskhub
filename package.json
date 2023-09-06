@@ -2,6 +2,7 @@
   "name": "taskhub",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "clean": "git clean -xdf .next",
     "dev-server": "next dev",

@@ -6,7 +6,7 @@ module.exports = {
     "plugin:@typescript-eslint/stylistic-type-checked",
     "next/core-web-vitals",
     "plugin:tailwindcss/recommended",
-    "prettier",
+    "prettier"
   ],
   overrides: [
     /**
@@ -17,8 +17,8 @@ module.exports = {
       parser: "@typescript-eslint/parser",
       parserOptions: {
         tsconfigRootDir: __dirname,
-        project: true,
-      },
+        project: true
+      }
     },
     /**
      * Config files (ex: jest.config.js, prettier.config.js, tailwind.config.js)
@@ -26,11 +26,11 @@ module.exports = {
     {
       files: ["*.config.js"],
       env: {
-        node: true,
+        node: true
       },
       rules: {
-        "@typescript-eslint/no-var-requires": "off",
-      },
+        "@typescript-eslint/no-var-requires": "off"
+      }
     },
     /**
      * Jest Configuration
@@ -38,24 +38,24 @@ module.exports = {
     {
       files: ["**/__tests__/**/*.{ts,tsx}", "**/*.test.{ts,tsx}"],
       env: {
-        jest: true,
+        jest: true
       },
       extends: ["plugin:jest/recommended", "plugin:jest/style"],
       plugins: ["jest"],
       rules: {
-        "@typescript-eslint/no-non-null-assertion": "off",
-      },
-    },
+        "@typescript-eslint/no-non-null-assertion": "off"
+      }
+    }
   ],
   settings: {
     tailwindcss: {
-      callees: ["classNames", "clsx", "cls", "cva", "cn"],
-    },
+      callees: ["classNames", "clsx", "cls", "cva", "cn"]
+    }
   },
   rules: {
     "@typescript-eslint/consistent-type-imports": [
       "error",
-      { prefer: "type-imports", fixStyle: "separate-type-imports" },
+      { prefer: "type-imports", fixStyle: "separate-type-imports" }
     ],
     "@typescript-eslint/no-unnecessary-condition": "off",
     "@typescript-eslint/no-unused-vars": [
@@ -63,8 +63,8 @@ module.exports = {
       {
         argsIgnorePattern: "^_",
         caughtErrors: "none",
-        varsIgnorePattern: "^_",
-      },
+        varsIgnorePattern: "^_"
+      }
     ],
     "import/order": [
       "error",
@@ -76,18 +76,18 @@ module.exports = {
           ["sibling", "parent"],
           "index",
           "object",
-          "type",
+          "type"
         ],
         alphabetize: {
-          order: "asc",
-        },
-      },
+          order: "asc"
+        }
+      }
     ],
     "sort-imports": [
       "error",
       {
-        ignoreDeclarationSort: true,
-      },
-    ],
-  },
+        ignoreDeclarationSort: true
+      }
+    ]
+  }
 };

@@ -8,7 +8,9 @@ const config = {
   jsxSingleQuote: false,
   trailingComma: "none",
   bracketSpacing: true,
-  jsxBracketSameLine: false,
+  bracketSameLine: false,
   arrowParens: "avoid",
-  endOfLine: "lf",
+  endOfLine: "lf"
 };
+
+export default config;

@@ -11,7 +11,7 @@ export function SignIn({
   return (
     <button
       type="button"
-      onClick={(e) => {
+      onClick={e => {
         e.preventDefault();
         void signIn(provider);
       }}
@@ -24,7 +24,7 @@ export function SignOut(props: React.ComponentProps<"button">) {
   return (
     <button
       {...props}
-      onClick={(e) => {
+      onClick={e => {
         e.preventDefault();
         void signOut();
       }}

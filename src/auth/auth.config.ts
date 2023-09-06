@@ -6,7 +6,7 @@ export default {
   providers: [GitHub],
   debug: process.env.NODE_ENV === "development",
   session: {
-    strategy: "jwt",
+    strategy: "jwt"
   },
   callbacks: {
     jwt: ({ token, user }) => {
@@ -15,9 +15,9 @@ export default {
         token.email = user.email;
       }
       return token;
-    },
+    }
   },
   pages: {
-    signIn: "/signin",
-  },
+    signIn: "/signin"
+  }
 } satisfies NextAuthConfig;

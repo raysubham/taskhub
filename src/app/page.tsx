@@ -14,12 +14,7 @@ export default async function Page() {
           <p>{session?.user?.email}</p>
           <SignOut>Sign out</SignOut>
         </div>
-        <Image
-          src={session?.user?.picture}
-          width={100}
-          height={100}
-          alt="Profile Pic"
-        />
+        <Image src={session?.user?.picture} width={100} height={100} alt="Profile Pic" />
       </>
     );
   }
