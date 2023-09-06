@@ -1,5 +1,8 @@
-import NextAuth, { DefaultSession } from "next-auth";
-import authConfig from "@/auth.config";
+import NextAuth from "next-auth";
+
+import authConfig from "@/auth/auth.config";
+
+import type { DefaultSession } from "next-auth";
 
 declare module "next-auth" {
   interface Session {
@@ -14,8 +17,7 @@ export const {
 
 export const getCurrentUser = async () => {
   const session = await auth();
-  if (session) {
-    return session.user;
-  }
-  return null;
+
+  if (!session?.user) return null;
+  return session.user;
 };

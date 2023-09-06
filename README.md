@@ -3,3 +3,4 @@
 - Setup t3-env
 - Setup Database
 - Setup Drizzle
+- Setup vercel.json

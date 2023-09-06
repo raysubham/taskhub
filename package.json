@@ -3,30 +3,45 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "rm -rf .next && next dev",
+    "clean": "git clean -xdf .next",
+    "dev-server": "next dev",
+    "dev": "run-s clean dev-server",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "dotenv -c -- next lint",
+    "lint:fix": "dotenv -c -- next lint --fix",
+    "format": "prettier --write \"**/*.{js,ts,tsx,md,json}\" --ignore-path .gitignore",
+    "format:check": "prettier --check \"**/*.{js,ts,tsx,md,json}\" --ignore-path .gitignore"
   },
   "dependencies": {
     "@auth/core": "^0.13.0",
-    "@types/node": "20.5.3",
-    "@types/react": "18.2.21",
-    "@types/react-dom": "18.2.7",
-    "autoprefixer": "10.4.15",
-    "eslint": "8.47.0",
-    "eslint-config-next": "13.4.19",
+    "dotenv-cli": "^7.3.0",
     "next": "13.4.19",
     "next-auth": "0.0.0-manual.ffd05533",
-    "postcss": "8.4.28",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "tailwindcss": "3.3.3",
-    "typescript": "5.1.6"
+    "react-dom": "18.2.0"
   },
   "pnpm": {
     "overrides": {
       "@auth/core": "0.13.0"
     }
+  },
+  "devDependencies": {
+    "@types/node": "20.5.3",
+    "@types/react": "18.2.21",
+    "@types/react-dom": "18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.5.0",
+    "@typescript-eslint/parser": "^6.5.0",
+    "autoprefixer": "10.4.15",
+    "eslint": "^8.48.0",
+    "eslint-config-next": "^13.4.19",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-jest": "^27.2.3",
+    "eslint-plugin-tailwindcss": "^3.13.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "8.4.28",
+    "prettier": "^3.0.3",
+    "tailwindcss": "3.3.3",
+    "typescript": "5.1.6"
   }
 }
