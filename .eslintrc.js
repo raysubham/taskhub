@@ -13,7 +13,7 @@ module.exports = {
      * Typescript Configuration
      */
     {
-      files: ["*.ts", "*.tsx", "*.d.ts"],
+      files: ["*.ts", "*.tsx", "*.d.ts", "*.mjs"],
       parser: "@typescript-eslint/parser",
       parserOptions: {
         tsconfigRootDir: __dirname,

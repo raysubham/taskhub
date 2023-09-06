@@ -1,10 +1,12 @@
 import GitHub from "@auth/core/providers/github";
 
+import { env } from "@/env";
+
 import type { NextAuthConfig } from "next-auth";
 
 export default {
   providers: [GitHub],
-  debug: process.env.NODE_ENV === "development",
+  debug: env.NODE_ENV === "development",
   session: {
     strategy: "jwt"
   },

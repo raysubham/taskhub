@@ -2,3 +2,4 @@
 - Setup Database
 - Setup Drizzle
 - Setup vercel.json
+- Try Kirimase
