@@ -1,5 +1,3 @@
-- Setup Auth
-- Setup Eslint and Prettier
 - Setup t3-env
 - Setup Database
 - Setup Drizzle
