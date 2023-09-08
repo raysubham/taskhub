@@ -1,28 +1,36 @@
-import Image from "next/image";
 import Link from "next/link";
 
-import { SignIn, SignOut } from "@/components/auth";
+import { SignOut } from "@/components/auth";
 import { auth } from "@/lib/auth";
+import { api } from "@/lib/trpc/api";
+import AddTodo from "@/components/add-todo";
 
 export default async function Page() {
   const session = await auth();
+  const todos = await api.getTodos.query();
 
   return (
-    <div className="flex items-start space-x-4">
+    <div className="py-4">
       {session ? (
-        <div className="flex flex-col space-y-4">
-          <div className="flex space-x-4">
-            <Link href="/todo">Go to Todo</Link>
-            <p>{session?.user?.name}</p>
-            <p>{session?.user?.email}</p>
-            <SignOut>Sign out</SignOut>
+        <div className="flex flex-col justify-between px-2">
+          <div className="flex justify-between px-2">
+            <div className="flex flex-col">
+              <p>Signed in as {session?.user?.name}</p>
+            </div>
+            <SignOut className="rounded bg-blue-600 px-4 py-2 text-white">Sign Out</SignOut>
           </div>
-          <div className="flex space-x-4">
-            <Image src={session?.user?.picture} width={100} height={100} alt="Profile Pic" />
+
+          <div className="flex flex-col space-y-2">
+            <AddTodo />
+            <ul>{todos?.map(t => <li key={t.id}>{t.name}</li>)}</ul>
           </div>
         </div>
       ) : (
-        <SignIn provider="github">Sign in with GitHub</SignIn>
+        <div className="flex items-center justify-center">
+          <button className="rounded bg-blue-600 px-4 py-2 text-white">
+            <Link href="/api/auth/signin">Sign in</Link>
+          </button>
+        </div>
       )}
     </div>
   );

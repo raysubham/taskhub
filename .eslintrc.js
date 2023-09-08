@@ -62,23 +62,6 @@ module.exports = {
         caughtErrors: "none",
         varsIgnorePattern: "^_"
       }
-    ],
-    "import/order": [
-      "error",
-      {
-        "newlines-between": "always",
-        groups: [
-          ["builtin", "external"],
-          "internal",
-          ["sibling", "parent"],
-          "index",
-          "object",
-          "type"
-        ],
-        alphabetize: {
-          order: "asc"
-        }
-      }
     ]
   }
 };
