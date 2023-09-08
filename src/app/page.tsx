@@ -1,12 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-
 import Image from "next/image";
 import Link from "next/link";
 
 import { SignIn, SignOut } from "@/components/auth";
-import ClientComponent from "@/components/client-component";
 import { auth } from "@/lib/auth";
 
 export default async function Page() {
@@ -17,6 +12,7 @@ export default async function Page() {
       {session ? (
         <div className="flex flex-col space-y-4">
           <div className="flex space-x-4">
+            <Link href="/todo">Go to Todo</Link>
             <p>{session?.user?.name}</p>
             <p>{session?.user?.email}</p>
             <SignOut>Sign out</SignOut>
@@ -28,12 +24,6 @@ export default async function Page() {
       ) : (
         <SignIn provider="github">Sign in with GitHub</SignIn>
       )}
-      <div className="flex flex-col space-y-4">
-        <div className="flex gap-2">
-          <p>Client:</p> <ClientComponent />
-        </div>
-        <Link href="/protected">Protected Route</Link>
-      </div>
     </div>
   );
 }

@@ -1,15 +1,15 @@
-import { protectedProcedure, publicProcedure, router } from "@/lib/trpc/trpc";
+import { db } from "@/lib/db";
+import { insertTodoSchema, todosTable } from "@/lib/db/schema/todo";
+import { publicProcedure, router } from "@/lib/trpc/trpc";
 
 export const appRouter = router({
-  getTrpcClient: publicProcedure.query(opts => {
-    console.log({ session: opts.ctx.session, headers: opts.ctx.headers });
-
-    return "Hello TRPC Client!";
+  getTodos: publicProcedure.query(async opts => {
+    const result = await db.select().from(todosTable);
+    return result;
   }),
-  getTrpcServer: protectedProcedure.query(opts => {
-    console.log({ session: opts.ctx.session, headers: opts.ctx.headers });
-
-    return "Hello TRPC Server!";
+  addTodo: publicProcedure.input(insertTodoSchema).mutation(async ({ input }) => {
+    const result = await db.insert(todosTable).values(input);
+    return result;
   })
 });
 

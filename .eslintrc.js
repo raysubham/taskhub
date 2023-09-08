@@ -4,9 +4,7 @@ module.exports = {
     "eslint:recommended",
     "plugin:@typescript-eslint/strict-type-checked",
     "plugin:@typescript-eslint/stylistic-type-checked",
-    "next/core-web-vitals",
-    "plugin:tailwindcss/recommended",
-    "prettier"
+    "next/core-web-vitals"
   ],
   overrides: [
     /**
@@ -47,16 +45,15 @@ module.exports = {
       }
     }
   ],
-  settings: {
-    tailwindcss: {
-      callees: ["classNames", "clsx", "cls", "cva", "cn"]
-    }
-  },
   rules: {
     "@typescript-eslint/consistent-type-imports": [
       "error",
       { prefer: "type-imports", fixStyle: "separate-type-imports" }
     ],
+    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/no-unsafe-assignment": "off",
+    "@typescript-eslint/no-unsafe-assignment": "off",
+    "@typescript-eslint/no-unsafe-call": "off",
     "@typescript-eslint/no-unnecessary-condition": "off",
     "@typescript-eslint/no-unused-vars": [
       "warn",
@@ -81,12 +78,6 @@ module.exports = {
         alphabetize: {
           order: "asc"
         }
-      }
-    ],
-    "sort-imports": [
-      "error",
-      {
-        ignoreDeclarationSort: true
       }
     ]
   }

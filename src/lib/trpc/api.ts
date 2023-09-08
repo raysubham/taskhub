@@ -1,12 +1,9 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 import { loggerLink } from "@trpc/client";
 import { experimental_nextCacheLink as nextCacheLink } from "@trpc/next/app-dir/links/nextCache";
 import { experimental_createTRPCNextAppDirServer as createTRPCNextAppDirServer } from "@trpc/next/app-dir/server";
 import { cookies } from "next/headers";
 import SuperJSON from "superjson";
 
-// eslint-disable-next-line sort-imports
 import { auth } from "@/lib/auth";
 import { appRouter } from "@/lib/trpc";
 
