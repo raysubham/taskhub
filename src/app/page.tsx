@@ -1,12 +1,12 @@
 import Link from "next/link";
 
 import { SignOut } from "@/components/auth";
-import { auth } from "@/lib/auth";
 import { api } from "@/lib/trpc/api";
 import AddTodo from "@/components/add-todo";
+import { getUserAuth } from "@/lib/auth/utils";
 
 export default async function Page() {
-  const session = await auth();
+  const session = await getUserAuth();
   const todos = await api.getTodos.query();
 
   return (

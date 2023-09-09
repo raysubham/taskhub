@@ -4,8 +4,8 @@ import { experimental_createTRPCNextAppDirServer as createTRPCNextAppDirServer }
 import { cookies } from "next/headers";
 import SuperJSON from "superjson";
 
-import { auth } from "@/lib/auth";
 import { appRouter } from "@/lib/trpc";
+import { getUserAuth } from "@/lib/auth/utils";
 
 /**
  * This client invokes procedures directly on the server without fetching over HTTP.
@@ -22,7 +22,7 @@ export const api = createTRPCNextAppDirServer<typeof appRouter>({
           revalidate: 1,
           router: appRouter,
           async createContext() {
-            const session = await auth();
+            const session = await getUserAuth();
             return {
               session,
               headers: {

@@ -8,7 +8,11 @@ const handler = (req: Request) =>
     endpoint: "/api/trpc",
     req,
     router: appRouter,
-    createContext
+    createContext,
+    onError({ error }) {
+      console.log("Error: ", error.message);
+      console.log("Reason: ", JSON.stringify(error.cause, null, 4));
+    }
   });
 
 export { handler as GET, handler as POST };
