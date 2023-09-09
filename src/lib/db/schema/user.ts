@@ -1,7 +1,7 @@
 import { integer, sqliteTable, text, primaryKey } from "drizzle-orm/sqlite-core";
 import type { AdapterAccount } from "@auth/core/adapters";
 
-export const users = sqliteTable("user", {
+export const usersTable = sqliteTable("user", {
   id: text("id").notNull().primaryKey(),
   name: text("name"),
   email: text("email").notNull(),
@@ -9,12 +9,12 @@ export const users = sqliteTable("user", {
   image: text("image")
 });
 
-export const accounts = sqliteTable(
+export const accountsTable = sqliteTable(
   "account",
   {
     userId: text("userId")
       .notNull()
-      .references(() => users.id, { onDelete: "cascade" }),
+      .references(() => usersTable.id, { onDelete: "cascade" }),
     type: text("type").$type<AdapterAccount["type"]>().notNull(),
     provider: text("provider").notNull(),
     providerAccountId: text("providerAccountId").notNull(),
@@ -31,15 +31,15 @@ export const accounts = sqliteTable(
   })
 );
 
-export const sessions = sqliteTable("session", {
+export const sessionsTable = sqliteTable("session", {
   sessionToken: text("sessionToken").notNull().primaryKey(),
   userId: text("userId")
     .notNull()
-    .references(() => users.id, { onDelete: "cascade" }),
+    .references(() => usersTable.id, { onDelete: "cascade" }),
   expires: integer("expires", { mode: "timestamp_ms" }).notNull()
 });
 
-export const verificationTokens = sqliteTable(
+export const verificationTokensTable = sqliteTable(
   "verificationToken",
   {
     identifier: text("identifier").notNull(),
