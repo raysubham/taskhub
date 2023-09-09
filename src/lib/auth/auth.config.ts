@@ -10,9 +10,6 @@ export default {
   adapter: DrizzleAdapter(db),
   providers: [GitHub],
   debug: env.NODE_ENV === "development",
-  session: {
-    strategy: "jwt"
-  },
   callbacks: {
     jwt: ({ token, user }) => {
       if (user) {

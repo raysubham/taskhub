@@ -17,7 +17,7 @@
     "db:drop": "drizzle-kit drop",
     "db:pull": "drizzle-kit introspect:sqlite",
     "db:push": "drizzle-kit push:sqlite",
-    "db:studio": "drizzle-kit studio",
+    "db:studio": "drizzle-kit studio --port 3001",
     "db:check": "drizzle-kit check:sqlite"
   },
   "dependencies": {
