@@ -11,6 +11,9 @@ dependencies:
   '@auth/core':
     specifier: 0.13.0
     version: 0.13.0
+  '@auth/drizzle-adapter':
+    specifier: ^0.3.2
+    version: 0.3.2
   '@t3-oss/env-nextjs':
     specifier: ^0.6.1
     version: 0.6.1(typescript@5.1.6)(zod@3.22.2)
@@ -142,6 +145,14 @@ packages:
       oauth4webapi: 2.3.0
       preact: 10.11.3
       preact-render-to-string: 5.2.3(preact@10.11.3)
+    dev: false
+
+  /@auth/drizzle-adapter@0.3.2:
+    resolution: {integrity: sha512-fHfzwaTomm/RKgFKBO5AJ8JTfR44rX1KX2ASaKRk+4jvVhDh9FCir5BV1Fv68b5ay7XBo9DtcNSQuZp4hbpLYw==}
+    dependencies:
+      '@auth/core': 0.13.0
+    transitivePeerDependencies:
+      - nodemailer
     dev: false
 
   /@babel/runtime@7.22.10:

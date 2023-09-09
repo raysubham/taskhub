@@ -6,8 +6,7 @@ export const env = createEnv({
     AUTH_GITHUB_ID: z.string(),
     AUTH_GITHUB_SECRET: z.string(),
     AUTH_SECRET: z.string(),
-    AUTH_URL: z.string(),
-    DATABASE_URL: z.string()
+    AUTH_URL: z.string()
   },
   client: {},
   shared: {

@@ -1,4 +1,3 @@
-import { env } from "@/lib/env";
 import { type Config } from "drizzle-kit";
 
 export default {
@@ -8,6 +7,6 @@ export default {
   strict: true,
   driver: "better-sqlite",
   dbCredentials: {
-    url: env.DATABASE_URL
+    url: "taskhub-sqlite.db"
   }
 } satisfies Config;
