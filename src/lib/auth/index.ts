@@ -14,10 +14,3 @@ export const {
   handlers: { GET, POST },
   auth
 } = NextAuth(authConfig);
-
-export const getCurrentUser = async () => {
-  const session = await auth();
-
-  if (!session?.user) return null;
-  return session.user;
-};
