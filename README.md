@@ -1,4 +1,4 @@
 - Setup Drizzle
 - Setup vercel.json
 - Deploy to Vercel
-- New Todo
+- New Todo yyay
