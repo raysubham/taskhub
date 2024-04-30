@@ -1,5 +1,5 @@
 - Setup Drizzle
 - Setup vercel.json
 - Deploy to Vercel
-- Nope
+- Nope Yayy
 
