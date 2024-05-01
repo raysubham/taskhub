@@ -2,3 +2,4 @@
 - Setup vercel.json
 - Deploy to Vercel
 - Here's a new TODO
+- Another TODO for the project
