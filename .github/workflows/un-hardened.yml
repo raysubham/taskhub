@@ -1,4 +1,4 @@
-name: Un-hardened Workflow (CI)
+name: Un-hardened Workflow (CI/CD)
 
 on:
   push:
