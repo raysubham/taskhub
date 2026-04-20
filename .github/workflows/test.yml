@@ -1,4 +1,4 @@
-name: Test Workflow for new policies
+name: Test Workflow for new prod policies
 
 on:
   push:
